@@ -1,9 +1,8 @@
 <?php
 
     include('list-create.php');
-
     $deleteKey=$_GET['key'];
-
+    $page=$_GET['page'];
 
     // READING THE LIST.CSV
 
@@ -34,7 +33,7 @@
     listCreate($arrGet);
 
     // REDIRECT
-    header("Location:index.php?state=display");
+    header("Location:index.php?state=display&page=".$page);
     die();
 
 ?>
