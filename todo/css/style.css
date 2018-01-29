@@ -1,0 +1,25 @@
+*{
+    font-size: 12px;
+}
+
+.taskLate{
+    color: red;
+}
+
+.taskFinished{
+    color: #d3d3d3;
+    text-decoration: line-through;
+    font-weight: unset;
+}
+
+.taskUrgent{
+    background-color: rgba(255,198,191,0.2);
+}
+
+.taskModerate{
+    background-color: rgba(217,233,255,0.2);
+}
+
+.taskUnimporant{
+    background-color: rgba(194,204,153,0.2);
+}
