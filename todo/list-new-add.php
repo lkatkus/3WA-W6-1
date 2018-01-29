@@ -36,7 +36,7 @@
     fclose($write);
 
     // REDIRECT TO LIST DISPLAY
-    header("Location:index.php?state=display&amp;page=1");
+    header("Location:index.php?state=display&page=1");
     die();
 
 ?>

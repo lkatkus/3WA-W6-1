@@ -28,33 +28,28 @@
 
                 <div class="col-md-12 my-2">
 
+                    <!-- CREATE DEFAULT LIST -->
                     <?php
                         if($_GET['state'] == 'create'){
                             include('list-default.php');
                         }
                     ?>
 
+                    <!-- DISPLAY CURRENT LIST -->
                     <?php
                         if($_GET['state'] == 'display'){
                             include('list-display.php');
                         }
                     ?>
 
+                    <!-- DISPLAY NEW TO-DO CREATION FORM -->
                     <?php
                         if($_GET['state'] == 'new'){
                             include ('list-new.php');
                         }
                     ?>
 
-                    <?php
-                        if($_GET['state'] == 'added'){
-                            echo 'added';
-                            include('list-display.php');
-                        }
-                    ?>
-
                 </div>
-
             </div>
         </div>
     </body>
