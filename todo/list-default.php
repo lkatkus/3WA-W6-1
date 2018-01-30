@@ -13,14 +13,14 @@
             'title'=>'Roses are orange',
             'description'=>'Chicken tenderloin',
             'deadline'=>'1535749200',
-            'priority'=>'Unimporant',
+            'priority'=>'Optional',
             'completion'=>0
         ],
         [
             'title'=>'Oranges are blue',
             'description'=>'Ipsum tenderloin',
             'deadline'=>'4654654654',
-            'priority'=>'Moderate',
+            'priority'=>'Significant',
             'completion'=>0
         ],
         [
@@ -34,14 +34,14 @@
             'title'=>'Green',
             'description'=>'Ipsum tenderloin',
             'deadline'=>'454546454564',
-            'priority'=>'Unimporant',
+            'priority'=>'Optional',
             'completion'=>0
         ],
         [
             'title'=>'Are blue',
             'description'=>'Ipsum tenderloin',
             'deadline'=>'55565656',
-            'priority'=>'Moderate',
+            'priority'=>'Significant',
             'completion'=>0
         ],
         [
@@ -55,14 +55,14 @@
             'title'=>'Green',
             'description'=>'Ipsum tenderloin',
             'deadline'=>'4654654654',
-            'priority'=>'Unimporant',
+            'priority'=>'Optional',
             'completion'=>0
         ],
         [
             'title'=>'Are blue',
             'description'=>'Ipsum tenderloin',
             'deadline'=>'4654654654',
-            'priority'=>'Moderate',
+            'priority'=>'Significant',
             'completion'=>0
         ],
         [
@@ -76,7 +76,7 @@
             'title'=>'Are blue',
             'description'=>'Ipsum tenderloin',
             'deadline'=>'4654654654',
-            'priority'=>'Moderate',
+            'priority'=>'Significant',
             'completion'=>0
         ],
         [
@@ -90,14 +90,14 @@
             'title'=>'Green',
             'description'=>'Ipsum tenderloin',
             'deadline'=>'4654654654',
-            'priority'=>'Unimporant',
+            'priority'=>'Optional',
             'completion'=>0
         ],
         [
             'title'=>'Are blue',
             'description'=>'Ipsum tenderloin',
             'deadline'=>'4654654654',
-            'priority'=>'Moderate',
+            'priority'=>'Significant',
             'completion'=>0
         ],
         [
@@ -111,7 +111,7 @@
             'title'=>'Are blue',
             'description'=>'Ipsum tenderloin',
             'deadline'=>'4654654654',
-            'priority'=>'Moderate',
+            'priority'=>'Significant',
             'completion'=>0
         ],
         [
@@ -125,7 +125,7 @@
             'title'=>'Are blue',
             'description'=>'Ipsum tenderloin',
             'deadline'=>'4654654654',
-            'priority'=>'Moderate',
+            'priority'=>'Significant',
             'completion'=>0
         ],
         [
@@ -139,7 +139,7 @@
             'title'=>'Are blue',
             'description'=>'Ipsum tenderloin',
             'deadline'=>'4654654654',
-            'priority'=>'Moderate',
+            'priority'=>'Significant',
             'completion'=>0
         ],
         [

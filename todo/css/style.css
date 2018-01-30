@@ -2,9 +2,9 @@
     font-size: 12px;
 }
 
-.taskLate{
+/*.taskLate{
     background-color: rgba(255,198,191,0.2);
-}
+}*/
 
 .taskFinished{
     color: #d3d3d3;
@@ -13,13 +13,28 @@
 }
 
 .taskUrgent{
-    background-color: rgba(255,198,191,0.2);
+    background-color: rgba(255,198,191,0.15);
 }
 
 .taskModerate{
-    background-color: rgba(217,233,255,0.2);
+    background-color: rgba(217,233,255,0.15);
 }
 
 .taskUnimporant{
-    background-color: rgba(194,204,153,0.2);
+    background-color: rgba(194,204,153,0.15);
+}
+
+.page-link{
+    color: #a8a8a8;
+}
+
+select{
+    color: white;
+    background-color: #212529;
+    border: none;
+}
+
+option{
+    color: black;
+    background-color: white;
 }

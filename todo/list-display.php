@@ -26,13 +26,13 @@
         }
 
         // CHANGING BACKGROUND COLOR OF ELEMENTS BASED ON PRIORITY
-        // if($currentPriority == 'Urgent'){
-        //     echo 'taskUrgent ';
-        // }elseif($currentPriority == 'Moderate'){
-        //     echo 'taskModerate ';
-        // }else{
-        //     echo 'taskUnimporant ';
-        // }
+        if($currentPriority == 'Urgent'){
+            echo 'taskUrgent ';
+        }elseif($currentPriority == 'Significant'){
+            echo 'taskModerate ';
+        }else{
+            echo 'taskUnimporant ';
+        }
     }
 ?>
 
@@ -55,7 +55,17 @@
                 </form>
             </th>
 
-            <th>Priority</th>
+            <th>
+                <form action="list-sort.php" method="GET">
+                    <!-- ONCHANGE AUTO SUBMITS OPTION FOR SORTING TABLE ELEMENTS. SIMPLE ANCHOR COULD BE USED-->
+                    <select name="sort" onchange="this.form.submit();">
+                        <option disabled selected>Priority</option>
+                        <option value="optional">Optional</option>
+                        <option value="urgent">Urgent</option>
+                    </select>
+                </form>
+            </th>
+
             <th></th>
             <th></th>
         </tr>

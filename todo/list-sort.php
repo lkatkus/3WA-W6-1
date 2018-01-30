@@ -20,20 +20,35 @@ while(($a = fgetcsv($read)) !== false){
 fclose($read); /*MUST BE CLOSED AFTER OPENING */
 
 // READING REFERENCE ARRAY
-$arrSort = [];
+$arrSortDeadline = [];
 foreach($arrGet as $i){
     // PUSHING DATA TO USE FOR SORTING
-    $arrSort[]=$i['deadline'];
+    $arrSortDeadline[]=$i['deadline'];
+};
+
+$arrSortPriority = [];
+foreach($arrGet as $i){
+    // PUSHING DATA TO USE FOR SORTING
+    $arrSortPriority[]=$i['priority'];
 };
 
 // SORTING BASE ARRAY
 if($sortDirectrion == 'low'){
-    array_multisort($arrSort,SORT_ASC,$arrGet);
-}else{
-    array_multisort($arrSort,SORT_DESC,$arrGet);
+    array_multisort($arrSortDeadline,SORT_ASC,$arrGet);
+}elseif($sortDirectrion == 'high'){
+    array_multisort($arrSortDeadline,SORT_DESC,$arrGet);
 };
 
+if($sortDirectrion == 'optional'){
+    array_multisort($arrSortPriority,SORT_ASC,SORT_NATURAL,$arrGet);
+    echo 'lol';
+}elseif($sortDirectrion == 'urgent'){
+    array_multisort($arrSortPriority,SORT_DESC,SORT_NATURAL,$arrGet);
+};
+
+
 listCreate($arrGet);
+
 session_start();
 header("Location:index.php?state=display&page=".$_SESSION['page']."&objectsPerPage=".$_SESSION['objectsPerPage']);
 die();
