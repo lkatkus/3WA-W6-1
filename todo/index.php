@@ -28,7 +28,6 @@
 
                 <div class="col-md-12 my-2">
 
-                    <!-- CREATE DEFAULT LIST -->
                     <?php
                         if($_GET['state'] == 'create'){
                             include('list-default.php');
