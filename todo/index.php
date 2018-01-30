@@ -26,26 +26,22 @@
                 <div class="col-md-12 my-2 d-flex">
                     <a class="mr-2" href="index.php?state=display&amp;page=1&amp;objectsPerPage=5"><button type="button" class="btn btn-primary">Show list</button></a>
                     <a class="mr-2" href="index.php?state=new"><button type="button" class="btn btn-primary">Add to list</button></a>
+                    <a class=""href="index.php?state=create"><button type="button" class="btn btn-danger">Create list</button></a>
 
+                    <!-- ADD OPTION FOR CHOOSING NUMBER OF DISPLAYED OBJECTS IF A LIST IS DISPLAYED -->
                     <?php if($_GET['state'] == 'display'):?>
-
-                    <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Objects Per Page
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="index.php?state=display&amp;page=1&amp;objectsPerPage=5">5</button></a>
-                            <a class="dropdown-item" href="index.php?state=display&amp;page=1&amp;objectsPerPage=10">10</button></a>
-                            <a class="dropdown-item" href="index.php?state=display&amp;page=1&amp;objectsPerPage=20">20</button></a>
-                            <a class="dropdown-item" href="index.php?state=display&amp;page=1&amp;objectsPerPage=50">50</button></a>
+                        <div class="dropdown ml-auto mr-2">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Objects Per Page
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="index.php?state=display&amp;page=1&amp;objectsPerPage=5">5</button></a>
+                                <a class="dropdown-item" href="index.php?state=display&amp;page=1&amp;objectsPerPage=10">10</button></a>
+                                <a class="dropdown-item" href="index.php?state=display&amp;page=1&amp;objectsPerPage=20">20</button></a>
+                                <a class="dropdown-item" href="index.php?state=display&amp;page=1&amp;objectsPerPage=50">50</button></a>
+                            </div>
                         </div>
-                    </div>
-
-
-
                     <?php endif; ?>
-
-                    <a class="ml-auto"href="index.php?state=create"><button type="button" class="btn btn-danger">Create list</button></a>
                 </div>
 
                 <div class="col-md-12 my-2">

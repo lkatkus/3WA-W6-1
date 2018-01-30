@@ -1,5 +1,4 @@
 <?php
-    session_start();
 
     include('list-create.php');
     $deleteKey=$_GET['key'];
@@ -34,6 +33,7 @@
     listCreate($arrGet);
 
     // REDIRECT
+    session_start();
     header("Location:index.php?state=display&page=".$page."&objectsPerPage=".$_SESSION['objectsPerPage']);
     die();
 

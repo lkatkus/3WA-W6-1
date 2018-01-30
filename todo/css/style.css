@@ -3,7 +3,7 @@
 }
 
 .taskLate{
-    color: red;
+    background-color: rgba(255,198,191,0.2);
 }
 
 .taskFinished{

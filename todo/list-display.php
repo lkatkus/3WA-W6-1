@@ -25,6 +25,7 @@
             echo 'taskFinished ';
         }
 
+        // CHANGING BACKGROUND COLOR OF ELEMENTS BASED ON PRIORITY
         // if($currentPriority == 'Urgent'){
         //     echo 'taskUrgent ';
         // }elseif($currentPriority == 'Moderate'){
@@ -45,7 +46,7 @@
             <!-- SORTING BUTTON -->
             <th>
                 <form action="list-sort.php" method="GET">
-                    <!-- ONCHANGE AUTO SUBMITS OPTION FOR SORTING TABLE ELEMENTS-->
+                    <!-- ONCHANGE AUTO SUBMITS OPTION FOR SORTING TABLE ELEMENTS. SIMPLE ANCHOR COULD BE USED-->
                     <select name="sort" onchange="this.form.submit();">
                         <option disabled selected>Deadline</option>
                         <option value="low">Low To High</option>
@@ -63,23 +64,26 @@
     <?php
         session_start();
 
-        // GET PAGE INDEX
+        // GET CURRENT PAGE INDEX
         $page = $_GET['page'];
         $_SESSION['page'] = $page;
 
         // GET OBJECT PER PAGE
-            // DEFAULT VALUE
+        $objectsPerPage = 5;
 
-            if(array_key_exists('objectsPerPage',$_GET)){
+        if(array_key_exists('objectsPerPage',$_GET)){
+
+            if($_GET['objectsPerPage'] > 0){
                 $objectsPerPage = $_GET['objectsPerPage'];
                 $_SESSION['objectsPerPage'] = $objectsPerPage;
             }else{
-                $objectsPerPage = 5;
+                $objectsPerPage == 5;
+                $_SESSION['objectsPerPage'] = $objectsPerPage;
             }
+        }
 
         // GET AMOUNT OF PAGES
         $pageNumber = ceil(count($arrGet)/$objectsPerPage);
-
 
         // CHECK FOR HAND INPUT AND REDIRECT TO LAST PAGE
         if($page > $pageNumber){
@@ -101,9 +105,8 @@
         }
 
     ?>
-
+        <!-- ADD INFORMATION TO TABLE -->
         <?php for($i;$i < $z; $i++): ?>
-
             <tr class='<?php checkStatus($arrGet[$i]['deadline'],$arrGet[$i]['completion'],$arrGet[$i]['priority'])?>'>
                 <td class="align-middle"><?php echo ($x+1)?></td>
                 <td class="align-middle"><?php echo $arrGet[$i]['title']?></td>
@@ -111,31 +114,36 @@
                 <td class="align-middle"><?php echo date('Y - m - d',$arrGet[$i]['deadline'])?></td>
                 <td class="align-middle"><?php echo $arrGet[$i]['priority']?></td>
 
+                <!-- MANIPULATION STATE BUTTONS -->
+                <!-- FINISH BTN -->
                 <?php if($arrGet[$i]['completion']==0):?>
                     <td class="align-middle"><a href="list-update.php?update=redo&amp;key=<?php echo $x;?>&amp;page=<?php echo $page?>"><button type="button" class="btn btn-primary">Finish</button></a></td>
                 <?php endif;?>
 
+                <!-- RESET BTN -->
                 <?php if($arrGet[$i]['completion']==1):?>
                     <td class="align-middle"><a href="list-update.php?update=completed&amp;key=<?php echo $x;?>&amp;page=<?php echo $page?>"><button type="button" class="btn btn-warning">Reset</button></a></td>
                 <?php endif;?>
 
+                <!-- DELETE BUTTON -->
                 <td class="align-middle"><a href="list-delete.php?key=<?php echo $x;?>&amp;page=<?php echo $page?>"><button type="button" class="btn btn-danger">Delete</button></a></td>
                 <?php $x++ ?>
             </tr>
-
         <?php endfor; ?>
 
 </table>
 
-<!-- GENERATE PAGINATION -->
-<nav aria-label="Page navigation example">
-    <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="index.php?state=display&amp;page=<?php if($page > 1){echo ($page-1);}else{echo '1';} ?>&amp;objectsPerPage=<?php echo $objectsPerPage; ?>">Previous</a></li>
+<!-- GENERATE PAGINATION IF MORE THAN ONE PAGE -->
+<?php if($pageNumber > 1): ?>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="index.php?state=display&amp;page=<?php if($page > 1){echo ($page-1);}else{echo '1';} ?>&amp;objectsPerPage=<?php echo $objectsPerPage; ?>">Previous</a></li>
 
-        <?php for($j = 1; $j <= $pageNumber; $j++):?>
-            <li class="page-item"><a class="page-link" href="index.php?state=display&amp;page=<?php echo $j ?>"><?php echo $j ?></a></li>
-        <?php endfor;?>
+            <?php for($j = 1; $j <= $pageNumber; $j++):?>
+                <li class="page-item <?php if($j == $page) echo 'active';?>"><a class="page-link" href="index.php?state=display&amp;page=<?php echo $j ?>"><?php echo $j ?></a></li>
+            <?php endfor;?>
 
-        <li class="page-item"><a class="page-link" href="index.php?state=display&amp;page=<?php if($page < $pageNumber){echo ($page+1);}else{echo $pageNumber;} ?>&amp;objectsPerPage=<?php echo $objectsPerPage; ?>">Next</a></li>
-    </ul>
-</nav>
+            <li class="page-item"><a class="page-link" href="index.php?state=display&amp;page=<?php if($page < $pageNumber){echo ($page+1);}else{echo $pageNumber;} ?>&amp;objectsPerPage=<?php echo $objectsPerPage; ?>">Next</a></li>
+        </ul>
+    </nav>
+<?php endif;?>
