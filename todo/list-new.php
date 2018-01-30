@@ -37,6 +37,6 @@
 
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="index.php?state=display"><button type="button" class="btn btn-primary">Cancel</button></a>
+        <a href="index.php?state=display&amp;page=1"><button type="button" class="btn btn-primary">Cancel</button></a>
     </div>
 </form>

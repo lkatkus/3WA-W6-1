@@ -41,7 +41,19 @@
             <th>Num.</th>
             <th>Title</th>
             <th>Description</th>
-            <th>Deadline</th>
+
+            <!-- SORTING BUTTON -->
+            <th>
+                <form action="list-sort.php" method="GET">
+                    <!-- ONCHANGE AUTO SUBMITS OPTION-->
+                    <select name="sort" onchange="this.form.submit();">
+                        <option disabled selected>Deadline</option>
+                        <option value="low">Low To High</option>
+                        <option value="high">High To Low</option>
+                    </select>
+                </form>
+            </th>
+
             <th>Priority</th>
             <th></th>
             <th></th>
@@ -95,30 +107,6 @@
             </tr>
 
         <?php endfor; ?>
-
-        <!-- BREAKER -->
-
-        <!-- <?php foreach($arrGet as $i):?>
-            <tr class='<?php checkStatus($i['deadline'],$i['completion'],$i['priority'])?>'>
-                <td class="align-middle"><?php echo ($j+1)?></td>
-                <td class="align-middle"><?php echo $i['title']?></td>
-                <td class="align-middle"><?php echo $i['description']?></td>
-                <td class="align-middle"><?php echo date('Y - m - d',$i['deadline'])?></td>
-                <td class="align-middle"><?php echo $i['priority']?></td>
-
-                <?php if($i['completion']==0):?>
-                    <td class="align-middle"><a href="list-update.php?update=redo&amp;key=<?php echo $j;?>"><button type="button" class="btn btn-primary">Finish</button></a></td>
-                <?php endif;?>
-
-                <?php if($i['completion']==1):?>
-                    <td class="align-middle"><a href="list-update.php?update=completed&amp;key=<?php echo $j;?>"><button type="button" class="btn btn-warning">Reset</button></a></td>
-                <?php endif;?>
-
-                <td class="align-middle"><a href="list-delete.php?key=<?php echo $j;?>"><button type="button" class="btn btn-danger">Delete</button></a></td>
-                <?php $j++ ?>
-            </tr>
-        <?php endforeach; ?> -->
-
 
 </table>
 

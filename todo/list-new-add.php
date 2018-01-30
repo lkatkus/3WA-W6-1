@@ -15,10 +15,10 @@
 
     // CREATE NEW WORD ARRAY
     $newTodo = [
-        'title'=>$newTitle,
-        'description'=>$newDescription,
-        'deadline'=>$newDeadline,
-        'priority'=>$newPriority,
+        'title'=>htmlspecialchars($newTitle),
+        'description'=>htmlspecialchars($newDescription),
+        'deadline'=>htmlspecialchars($newDeadline),
+        'priority'=>htmlspecialchars($newPriority),
         'completion'=>0
     ];
 
