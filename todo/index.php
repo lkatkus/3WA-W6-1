@@ -32,20 +32,12 @@
                     <?php
                         if($_GET['state'] == 'create'){
                             include('list-default.php');
-                        }
-                    ?>
-
-                    <!-- DISPLAY CURRENT LIST -->
-                    <?php
-                        if($_GET['state'] == 'display'){
+                        }elseif($_GET['state'] == 'display'){
                             include('list-display.php');
-                        }
-                    ?>
-
-                    <!-- DISPLAY NEW TO-DO CREATION FORM -->
-                    <?php
-                        if($_GET['state'] == 'new'){
+                        }elseif($_GET['state'] == 'new'){
                             include ('list-new.php');
+                        }else{
+                            include ('404.php');
                         }
                     ?>
 
