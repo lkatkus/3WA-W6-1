@@ -14,29 +14,34 @@
     $newDeadline = mktime(0,0,0,$newMonth,$newDay,$newYear);
 
     // CREATE NEW WORD ARRAY
-    $newTodo = [
-        'title'=>htmlspecialchars($newTitle),
-        'description'=>htmlspecialchars($newDescription),
-        'deadline'=>htmlspecialchars($newDeadline),
-        'priority'=>htmlspecialchars($newPriority),
-        'completion'=>0
-    ];
+    if($newTitle == null || $newDescription == null || $newDeadline = null || $newPriority = null){
+        header("Location:index.php?state=new&submit=error");
+    }
+    else{
+        $newTodo = [
+            'title'=>htmlspecialchars($newTitle),
+            'description'=>htmlspecialchars($newDescription),
+            'deadline'=>htmlspecialchars($newDeadline),
+            'priority'=>htmlspecialchars($newPriority),
+            'completion'=>0
+        ];
 
-    // WRITE DATA INTO LIST.CSV
-    $write = fopen('csv/list.csv','a');
+        // WRITE DATA INTO LIST.CSV
+        $write = fopen('csv/list.csv','a');
 
-    fputcsv($write,[
-        $newTodo['title'],
-        $newTodo['description'],
-        $newTodo['deadline'],
-        $newTodo['priority'],
-        $newTodo['completion']
-    ]);
+        fputcsv($write,[
+            $newTodo['title'],
+            $newTodo['description'],
+            $newTodo['deadline'],
+            $newTodo['priority'],
+            $newTodo['completion']
+        ]);
 
-    fclose($write);
+        fclose($write);
 
-    // REDIRECT TO LIST DISPLAY
-    header("Location:index.php?state=display&page=1");
-    die();
+        // REDIRECT TO LIST DISPLAY
+        header("Location:index.php?state=display&page=1");
+        die();
+    }
 
 ?>

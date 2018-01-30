@@ -61,14 +61,19 @@
     </thead>
 
     <?php
+        session_start();
+
         // GET AMOUNT OF PAGES
         $objectsPerPage = 5;
         $pageNumber = ceil(count($arrGet)/$objectsPerPage);
-    ?>
 
-    <?php
         // GET PAGE INDEX
         $page = $_GET['page'];
+
+        // CHECK FOR HAND INPUT AND REDIRECT TO LAST PAGE
+        if($page > $pageNumber){
+            $page = $pageNumber;
+        }
 
         // SET STARTING $i
         $i = 0 + ($objectsPerPage*$page-$objectsPerPage);
@@ -83,7 +88,6 @@
         }
 
     ?>
-
 
         <?php for($i;$i < $z; $i++): ?>
 

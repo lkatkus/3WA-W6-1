@@ -1,8 +1,20 @@
+
+
 <form action='list-new-add.php' method="get">
-    <h2>Enter new To-Do</h2>
+    <h2>
+        <?php
+            // CHECK IF THERE WAS A PREVIOUS SUBMISION
+            $submit=$_GET['submit'];
 
-    <!-- <input type="text" class="form-control" id="state" aria-describedby="emailHelp" value="added"> -->
-
+            // CHECK SUBMISION ERROR
+            if($submit == 'error'){
+                echo 'PLEASE FILL WHOLE FORM!';
+            }else{
+                echo 'Enter new To-Do';
+            }
+        ?>
+    </h2>
+    
     <div class="form-group row">
         <label class="col-md-2 col-form-label" for="formTitle">Title</label>
         <div class="col-md-10">
