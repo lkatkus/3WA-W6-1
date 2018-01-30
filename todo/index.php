@@ -7,6 +7,9 @@
         <title>TO-DO LIST</title>
 
         <!-- BOOTSTRAP CDN -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
         <!-- CUSTOM STYLE -->
@@ -21,8 +24,27 @@
                 </div>
 
                 <div class="col-md-12 my-2 d-flex">
-                    <a class="mr-2" href="index.php?state=display&amp;page=1"><button type="button" class="btn btn-primary">Show list</button></a>
-                    <a href="index.php?state=new"><button type="button" class="btn btn-primary">Add to list</button></a>
+                    <a class="mr-2" href="index.php?state=display&amp;page=1&amp;objectsPerPage=5"><button type="button" class="btn btn-primary">Show list</button></a>
+                    <a class="mr-2" href="index.php?state=new"><button type="button" class="btn btn-primary">Add to list</button></a>
+
+                    <?php if($_GET['state'] == 'display'):?>
+
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Objects Per Page
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="index.php?state=display&amp;page=1&amp;objectsPerPage=5">5</button></a>
+                            <a class="dropdown-item" href="index.php?state=display&amp;page=1&amp;objectsPerPage=10">10</button></a>
+                            <a class="dropdown-item" href="index.php?state=display&amp;page=1&amp;objectsPerPage=20">20</button></a>
+                            <a class="dropdown-item" href="index.php?state=display&amp;page=1&amp;objectsPerPage=50">50</button></a>
+                        </div>
+                    </div>
+
+
+
+                    <?php endif; ?>
+
                     <a class="ml-auto"href="index.php?state=create"><button type="button" class="btn btn-danger">Create list</button></a>
                 </div>
 
@@ -35,8 +57,6 @@
                             include('list-display.php');
                         }elseif($_GET['state'] == 'new'){
                             include ('list-new.php');
-                        }else{
-                            include ('404.php');
                         }
                     ?>
 

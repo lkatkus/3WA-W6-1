@@ -34,7 +34,8 @@ if($sortDirectrion == 'low'){
 };
 
 listCreate($arrGet);
-header("Location:index.php?state=display&page=1");
+session_start();
+header("Location:index.php?state=display&page=".$_SESSION['page']."&objectsPerPage=".$_SESSION['objectsPerPage']);
 die();
 
 ?>

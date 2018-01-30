@@ -33,7 +33,8 @@
 
 
     // REDIRECT
-    header("Location:index.php?state=display&page=".$page);
+    session_start();
+    header("Location:index.php?state=display&page=".$page."&objectsPerPage=".$_SESSION['objectsPerPage']);
     die();
 
 ?>

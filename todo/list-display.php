@@ -45,7 +45,7 @@
             <!-- SORTING BUTTON -->
             <th>
                 <form action="list-sort.php" method="GET">
-                    <!-- ONCHANGE AUTO SUBMITS OPTION-->
+                    <!-- ONCHANGE AUTO SUBMITS OPTION FOR SORTING TABLE ELEMENTS-->
                     <select name="sort" onchange="this.form.submit();">
                         <option disabled selected>Deadline</option>
                         <option value="low">Low To High</option>
@@ -63,16 +63,29 @@
     <?php
         session_start();
 
-        // GET AMOUNT OF PAGES
-        $objectsPerPage = 5;
-        $pageNumber = ceil(count($arrGet)/$objectsPerPage);
-
         // GET PAGE INDEX
         $page = $_GET['page'];
+        $_SESSION['page'] = $page;
+
+        // GET OBJECT PER PAGE
+            // DEFAULT VALUE
+
+            if(array_key_exists('objectsPerPage',$_GET)){
+                $objectsPerPage = $_GET['objectsPerPage'];
+                $_SESSION['objectsPerPage'] = $objectsPerPage;
+            }else{
+                $objectsPerPage = 5;
+            }
+
+        // GET AMOUNT OF PAGES
+        $pageNumber = ceil(count($arrGet)/$objectsPerPage);
+
 
         // CHECK FOR HAND INPUT AND REDIRECT TO LAST PAGE
         if($page > $pageNumber){
             $page = $pageNumber;
+        }elseif($page == null){
+            $page = 1;
         }
 
         // SET STARTING $i
@@ -82,7 +95,7 @@
         // FOR HANDLING LIST NUMBER IN TABLE
         $x = $i;
 
-        // MAX POST COUNT
+        // FOR MAX POST COUNT DISPLAY ON THE LAST TABLE PAGE
         if($z > count($arrGet)){
             $z = count($arrGet);
         }
@@ -117,12 +130,12 @@
 <!-- GENERATE PAGINATION -->
 <nav aria-label="Page navigation example">
     <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="index.php?state=display&amp;page=<?php if($page > 1){echo ($page-1);}else{echo '1';} ?>">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="index.php?state=display&amp;page=<?php if($page > 1){echo ($page-1);}else{echo '1';} ?>&amp;objectsPerPage=<?php echo $objectsPerPage; ?>">Previous</a></li>
 
         <?php for($j = 1; $j <= $pageNumber; $j++):?>
             <li class="page-item"><a class="page-link" href="index.php?state=display&amp;page=<?php echo $j ?>"><?php echo $j ?></a></li>
         <?php endfor;?>
 
-        <li class="page-item"><a class="page-link" href="index.php?state=display&amp;page=<?php if($page < $pageNumber){echo ($page+1);}else{echo $pageNumber;} ?>">Next</a></li>
+        <li class="page-item"><a class="page-link" href="index.php?state=display&amp;page=<?php if($page < $pageNumber){echo ($page+1);}else{echo $pageNumber;} ?>&amp;objectsPerPage=<?php echo $objectsPerPage; ?>">Next</a></li>
     </ul>
 </nav>

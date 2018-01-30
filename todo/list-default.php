@@ -120,6 +120,34 @@
             'deadline'=>'554454554',
             'priority'=>'Urgent',
             'completion'=>0
+        ],
+        [
+            'title'=>'Are blue',
+            'description'=>'Ipsum tenderloin',
+            'deadline'=>'4654654654',
+            'priority'=>'Moderate',
+            'completion'=>0
+        ],
+        [
+            'title'=>'Blue',
+            'description'=>'Ipsum tenderloin',
+            'deadline'=>'554454554',
+            'priority'=>'Urgent',
+            'completion'=>0
+        ],
+        [
+            'title'=>'Are blue',
+            'description'=>'Ipsum tenderloin',
+            'deadline'=>'4654654654',
+            'priority'=>'Moderate',
+            'completion'=>0
+        ],
+        [
+            'title'=>'Blue',
+            'description'=>'Ipsum tenderloin',
+            'deadline'=>'554454554',
+            'priority'=>'Urgent',
+            'completion'=>0
         ]
     ];
 
@@ -139,7 +167,8 @@
     fclose($write);
 
     // REDIRECT
-    header("Location:index.php?state=display&page=1");
+    session_start();
+    header("Location:index.php?state=display&page=1&objectsPerPage=".$_SESSION['objectsPerPage']);
     die();
 
 ?>
